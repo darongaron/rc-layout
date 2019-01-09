@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="dist/rc-layout.css">
+  <style>
+    code {
+      color: #fff;
+      background-color: #333;
+      display: block;
+      padding: 16px;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .one {width: 20%;}
+    .two {width: 50%;}
+    .three {width: 30%;}
+    .one-b {width: 20%;}
+    .two-b {width: 50%;}
+    .two-one {width: 33.3333%;}
+    .two-two {width: 33.3333%;}
+    .two-three {width: 33.3333%;}
+    .three-b {width: 30%;}
+    @media (max-width: 768px) {.one-b, .two-b, .three-b{width: 100%;}}
+    .bg-light {
+      background-color: #bdd4fb;
+    }
+    .bg-dark {
+      background-color: #a2b6de;
+    }
+  </style>
+  <title>Row Column Layout Css</title>
+</head>
+<body>
+
+  <div class="bg-dark" style="color: #fff;">
+    <div class="container">
+      <h1>Row Column layout Css</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2>CSS</h2>
+    <p>Download and copy-paste the stylesheet link tag into your head tag before all other stylesheets to load our CSS.</p>
+    <pre><code><link rel="stylesheet" href="rc-layout/dist/rc-layout.css"></code></pre>
+    <h2>SCSS</h2>
+    <pre><code>$gutter: 30px;
+$screen-lg: 1200px;
+@import "rc-layout/src/layout";</code></pre>
+    <h2>Basic usage</h2>
+    <h3>container</h3>
+  </div>
+  <div class="container bg-light">
+    <p>This is container</p>
+  </div>
+  <div class="container">
+    <pre><code><div class="container">This is container</div></code></pre>
+  </div>
+    
+  <div class="container">
+    <h3>.container-fluid</h3>
+  </div>
+  <div class="container-fluid bg-light">
+    <p>This is container-fluid</p>
+  </div>
+  <div class="container">
+    <pre><code><div class="container-fluid">This is container-fluid</div></code></pre>
+  </div>
+
+  <div class="container">
+
+    <h3>row col</h3>
+    <div class="row">
+      <div class="col bg-light">
+        <p>one</p>
+      </div>
+      <div class="col bg-dark">
+        <p>two</p>
+      </div>
+      <div class="col bg-light">
+        <p>three</p>
+      </div>
+    </div>
+    <pre><code><div class="row">
+  <div class="col">one</div>
+  <div class="col">two</div>
+  <div class="col">three</div>
+</div></code></pre>
+
+    <h3>row col-r</h3>
+    <div class="row">
+      <div class="col-r bg-light">
+        <p>one</p>
+      </div>
+      <div class="col-r bg-dark">
+        <p>two</p>
+      </div>
+      <div class="col-r bg-light">
+        <p>three</p>
+      </div>
+    </div>
+    <pre><code><div class="row">
+  <div class="col-r">one</div>
+  <div class="col-r">two</div>
+  <div class="col-r">three</div>
+</div></code></pre>
+  </div>
+
+  <div class="container">
+
+    <h3>width</h3>
+    <div class="row">
+      <div class="col bg-light one"><p>one</p></div>
+      <div class="col bg-dark two"><p>two</p></div>
+      <div class="col bg-light three"><p>three</p></div>
+    </div>
+
+    <pre><code><style>
+  .one   {width: 20%;}
+  .two   {width: 50%;}
+  .three {width: 30%;}
+</style>
+<div class="row">
+  <div class="col one">one</div>
+  <div class="col two">two</div>
+  <div class="col three">three</div>
+</div></code></pre>
+
+    <h3>Nesting</h3>
+    <div class="row">
+      <div class="col one bg-light"><p>one</p></div>
+      <div class="col two bg-dark">
+        <div class="row">
+          <div class="col bg-dark two-one"><p>two-one</p></div>
+          <div class="col bg-light two-two"><p>two-two</p></div>
+          <div class="col bg-dark two-three"><p>two-three</p></div>
+        </div>
+      </div>
+      <div class="col three bg-light"><p>three</p></div>
+    </div>
+    <pre><code><style>
+  .one {width: 20%;}
+  .two {width: 50%;}
+  .three {width: 30%;}
+  .two-one {width: 33.3333%;}
+  .two-two {width: 33.3333%;}
+  .two-three {width: 33.3333%;}
+</style>
+<div class="row">
+  <div class="col one">one</div>
+  <div class="col two">
+  <div class="row">
+    <div class="col two-one">two-one</div>
+    <div class="col two-two">two-two</div>
+    <div class="col two-three">two-three</div>
+  </div>
+  </div>
+  <div class="col three">three</div>
+</div></code></pre>
+
+
+    <h3>breakpoints</h3>
+    <div class="row">
+      <div class="col bg-light one-b"><p>one</p></div>
+      <div class="col bg-dark two-b"><p>two</p></div>
+      <div class="col bg-light three-b"><p>three</p></div>
+    </div>
+
+    <pre><code><style>
+  .one-b {width: 20%;}
+  .two-b {width: 50%;}
+  .three-b {width: 30%;}
+  @media (max-width: 768px) {.one-b, .two-b, .three-b{width: 100%;}}
+</style>
+<div class="row">
+  <div class="col one-b">one</div>
+  <div class="col two-b">two</div>
+  <div class="col three-b">three</div>
+</div></code></pre>
+
+  </div>
+
+  <div class="bg-dark" style="color: #fff;">
+    <div class="container">
+      <h1>Row Column Layout Css</h1>
+    </div>
+  </div>
+
+ <script>
+   (function (){
+    var escape_html = function (string) {
+      if(typeof string !== 'string') {
+        return string;
+      }
+      //return string.replace(/[&'`"<>\n\s]/g, function(match) {
+      return string.replace(/[&'`"<>]/g, function(match) {
+        return {
+          '&': '&amp;',
+          "'": '&#x27;',
+          '`': '&#x60;',
+          '"': '&quot;',
+          '<': '&lt;',
+          '>': '&gt;',
+          //'\n': '<br>',
+          //'\s': '&nbsp',
+        }[match]
+      });
+    };
+    var code = document.getElementsByTagName('code');
+    for(var c in code) {
+      code[c].innerHTML = escape_html(code[c].innerHTML);
+    }
+   })();
+  </script> 
+</body>
+</html>
