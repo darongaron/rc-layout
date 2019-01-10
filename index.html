@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="dist/rc-layout.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <style>
     code {
       color: #fff;
@@ -45,9 +46,9 @@
   <div class="container">
     <h2>CSS</h2>
     <p>Download and copy-paste the stylesheet link tag into your head tag before all other stylesheets to load our CSS.</p>
-    <pre><code><link rel="stylesheet" href="rc-layout/dist/rc-layout.css"></code></pre>
+    <pre><code>&lt;link rel="stylesheet" href="rc-layout/dist/rc-layout.css"&gt;</code></pre>
     <h2>SCSS</h2>
-    <pre><code>$gutter: 30px;
+    <pre><code class="code-esc">$gutter: 30px;
 $screen-lg: 1200px;
 @import "rc-layout/src/layout";</code></pre>
     <h2>Basic usage</h2>
@@ -57,7 +58,7 @@ $screen-lg: 1200px;
     <p>This is container</p>
   </div>
   <div class="container">
-    <pre><code><div class="container">This is container</div></code></pre>
+    <pre><code class="code-esc"><div class="container">This is container</div></code></pre>
   </div>
     
   <div class="container">
@@ -67,7 +68,7 @@ $screen-lg: 1200px;
     <p>This is container-fluid</p>
   </div>
   <div class="container">
-    <pre><code><div class="container-fluid">This is container-fluid</div></code></pre>
+    <pre><code class="code-esc"><div class="container-fluid">This is container-fluid</div></code></pre>
   </div>
 
   <div class="container">
@@ -84,7 +85,7 @@ $screen-lg: 1200px;
         <p>three</p>
       </div>
     </div>
-    <pre><code><div class="row">
+    <pre><code class="code-esc"><div class="row">
   <div class="col">one</div>
   <div class="col">two</div>
   <div class="col">three</div>
@@ -102,7 +103,7 @@ $screen-lg: 1200px;
         <p>three</p>
       </div>
     </div>
-    <pre><code><div class="row">
+    <pre><code class="code-esc"><div class="row">
   <div class="col-r">one</div>
   <div class="col-r">two</div>
   <div class="col-r">three</div>
@@ -118,7 +119,7 @@ $screen-lg: 1200px;
       <div class="col bg-light three"><p>three</p></div>
     </div>
 
-    <pre><code><style>
+    <pre><code class="code-esc"><style>
   .one   {width: 20%;}
   .two   {width: 50%;}
   .three {width: 30%;}
@@ -141,7 +142,7 @@ $screen-lg: 1200px;
       </div>
       <div class="col three bg-light"><p>three</p></div>
     </div>
-    <pre><code><style>
+    <pre><code class="code-esc"><style>
   .one {width: 20%;}
   .two {width: 50%;}
   .three {width: 30%;}
@@ -169,7 +170,7 @@ $screen-lg: 1200px;
       <div class="col bg-light three-b"><p>three</p></div>
     </div>
 
-    <pre><code><style>
+    <pre><code class="code-esc"><style>
   .one-b {width: 20%;}
   .two-b {width: 50%;}
   .three-b {width: 30%;}
@@ -195,7 +196,6 @@ $screen-lg: 1200px;
       if(typeof string !== 'string') {
         return string;
       }
-      //return string.replace(/[&'`"<>\n\s]/g, function(match) {
       return string.replace(/[&'`"<>]/g, function(match) {
         return {
           '&': '&amp;',
@@ -204,12 +204,10 @@ $screen-lg: 1200px;
           '"': '&quot;',
           '<': '&lt;',
           '>': '&gt;',
-          //'\n': '<br>',
-          //'\s': '&nbsp',
         }[match]
       });
     };
-    var code = document.getElementsByTagName('code');
+    var code = document.querySelectorAll("code.code-esc");
     for(var c in code) {
       code[c].innerHTML = escape_html(code[c].innerHTML);
     }
